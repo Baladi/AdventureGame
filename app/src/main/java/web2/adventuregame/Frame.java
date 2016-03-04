@@ -7,5 +7,12 @@ public class Frame {
 
     int id;
     String text;
+    int[] choix;
 
+    public Frame() {
+        choix= new int[2];
+        choix[0] = -1;
+        choix[1] = -1;
+
+    }
 }

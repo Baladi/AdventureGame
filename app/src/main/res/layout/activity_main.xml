@@ -22,19 +22,20 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.08">
+        android:layout_weight="3">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:id="@+id/BoiteDialogue"
-            android:layout_weight="1"
+            android:layout_weight="10"
             android:background="#c4ffffff" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="0.2">
 
             <Button
                 android:layout_width="wrap_content"
