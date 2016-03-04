@@ -21,7 +21,7 @@ public class Data {
     public Data(Context context) throws XmlPullParserException, IOException {
 
         //instanciations
-        frame = new HashMap();
+        frame = new HashMap() ;
         Frame currentFrame = null;
         int cpt = 0;
 
