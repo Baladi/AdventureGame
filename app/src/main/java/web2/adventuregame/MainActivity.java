@@ -1,13 +1,12 @@
 package web2.adventuregame;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -26,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
         try {
             data = new Data(this);
 
-            frame = data.get(1);
+
+            ////// obtenir et afficher page 1 --> setFrame(int)
+            setFrame(1);
+
+
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -34,19 +37,56 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
+
+    private void setFrame(int i) {
+
+        Frame tmp = data.get(i);
+
+        if(tmp != null) {
+            frame = tmp;
+            TextView textView = (TextView) findViewById(R.id.BoiteDialogue);
+            textView.setText(frame.text);
+
+            if (frame.choix[0] == -1){
+                Button button1 = (Button) findViewById(R.id.choix1);
+                button1.setEnabled(false);
+            } else {
+                Button button1 = (Button) findViewById(R.id.choix1);
+                button1.setEnabled(true);
+            }
+
+            if (frame.choix[1] == -1){
+                Button button2 = (Button) findViewById(R.id.choix2);
+                button2.setEnabled(false);
+            } else {
+                Button button2 = (Button) findViewById(R.id.choix2);
+                button2.setEnabled(true);
+            }
+        }
+    }
+
+    // Button choix 1
+    public void onClick1(View view){
+        setFrame(frame.choix[0]);
+    }
+
+    // Button choix 2
+    public void onClick2(View view){
+        setFrame(frame.choix[1]);
+
+    }
+
+    // Button MENU
+    public void onClickMenu(View view){
+        setFrame(1);
+    }
+
+    // onClick
+
+    // setFRame ( frame.choix[0]
+
+    //
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

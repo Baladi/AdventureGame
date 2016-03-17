@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <frame id='1'>
+            Bonjour Testeur, que veus tu ?
+            A) deux chaton svp
+            B) c'est par ou les toilette ?
+            <choix consequence='2'/>
+            <choix consequence='4'/>
+        </frame>
+        <frame id='2'>
+            Désolé on a plus de chaton en stock
+            A) Domage
+            B) ok un coca alors
+            <choix consequence='3'/>
+            <choix consequence='5'/>
+        </frame>
+        <frame id='3'>
+            oui je suis tres triste moi aussi
+        </frame>
+        <frame id='4'>
+            au fond a droite
+        </frame>
+        <frame id='5'>
+            ok tiens, il est bien frais
+        </frame>
+    </application>
+</PreferenceScreen>
