@@ -9,12 +9,32 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
+
+    private Data data;
+    private Frame frame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            data = new Data(this);
+
+            frame = data.get(1);
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -49,4 +69,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
