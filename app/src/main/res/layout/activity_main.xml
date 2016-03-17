@@ -41,19 +41,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="choix1"
-                android:id="@+id/choix1" />
+                android:id="@+id/choix1"
+                android:onClick="onClick1" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="choix2"
-                android:id="@+id/choix2" />
+                android:id="@+id/choix2"
+                android:onClick="onClick2" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Menu"
-                android:id="@+id/menu" />
+                android:id="@+id/menu"
+                android:onClick="onClickMenu" />
         </LinearLayout>
 
     </LinearLayout>
