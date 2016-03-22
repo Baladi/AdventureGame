@@ -8,6 +8,7 @@ public class Frame {
     int id;
     String text;
     int[] choix;
+    int img = -1;
 
     public Frame() {
         choix= new int[2];

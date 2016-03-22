@@ -9,14 +9,16 @@
     tools:context="web2.adventuregame.MainActivity"
     android:orientation="vertical"
     android:weightSum="1"
-    android:background="@drawable/skyrim">
+    android:background="#6a84ec">
 
-    <FrameLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/decorBoxImg"
+        android:scaleType="centerCrop">
 
-    </FrameLayout>
+    </ImageView>
 
     <LinearLayout
         android:orientation="horizontal"

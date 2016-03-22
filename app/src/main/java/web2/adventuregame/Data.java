@@ -41,9 +41,14 @@ public class Data {
                 } else if ("choix".equals(xpp.getName())) {// dŽbut d'une nouvelle catŽgorie
                     currentFrame.choix[cpt] = xpp.getAttributeIntValue(null, "consequence", -1);
                     cpt++;
+                } else if ("img".equals(xpp.getName())) {// début d'une nouvelle image
+                    String src = xpp.getAttributeValue(null, "src");
+                    if (src != null) {
+                        currentFrame.img = context.getResources().getIdentifier(src, "drawable", context.getPackageName());;
+                    }
                 }
 
-            } else if (eventType == XmlPullParser.END_TAG) { // fin d'une image
+            } else if (eventType == XmlPullParser.END_TAG) { // fin d'un tag
             } else if (eventType == XmlPullParser.TEXT) {
                 if (currentFrame != null)
                     currentFrame.text = xpp.getText(); // On met le text de coté pour la fin de la balise.

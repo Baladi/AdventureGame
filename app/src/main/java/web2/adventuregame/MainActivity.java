@@ -1,11 +1,16 @@
 package web2.adventuregame;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -14,6 +19,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String PREFS_NAME = "jkhkj";
     private Data data;
     private Frame frame;
 
@@ -22,12 +28,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+       // if(newGame =)
+        //////////chargement du i
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        int i = settings.getInt("frame", 1);
+
         try {
             data = new Data(this);
 
 
             ////// obtenir et afficher page 1 --> setFrame(int)
-            setFrame(1);
+            setFrame(i); // le i
 
 
         } catch (XmlPullParserException e) {
@@ -41,10 +52,26 @@ public class MainActivity extends AppCompatActivity {
 
     private void setFrame(int i) {
 
+        // sauvegarde du i
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("frame", i);
+
+        // Commit the edits!
+        editor.commit();
+
+
+
         Frame tmp = data.get(i);
 
         if(tmp != null) {
             frame = tmp;
+
+            ImageView imgView = (ImageView) findViewById(R.id.decorBoxImg);
+            if (frame.img != -1) {
+                imgView.setImageResource(frame.img);
+            }
+
             TextView textView = (TextView) findViewById(R.id.BoiteDialogue);
             textView.setText(frame.text);
 
@@ -78,9 +105,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Button MENU
-    public void onClickMenu(View view){
-        setFrame(1);
+
+
+    public void onClickMenu(View view) {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
     }
+
 
     // onClick
 
