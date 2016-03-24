@@ -9,7 +9,7 @@
     tools:context="web2.adventuregame.MainActivity"
     android:orientation="vertical"
     android:weightSum="1"
-    android:background="#6a84ec">
+    android:background="#cac4c4">
 
     <ImageView
         android:layout_width="match_parent"
@@ -22,16 +22,26 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3">
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:layout_weight="0">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:id="@+id/BoiteDialogue"
-            android:layout_weight="10"
-            android:background="#c4ffffff" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView2"
+            android:background="#c4ffffff"
+            android:layout_weight="10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/BoiteDialogue"
+                android:layout_weight="10"
+                android:text="Lorem ipsum"
+                android:textSize="20dp"
+                android:textIsSelectable="false" />
+        </ScrollView>
 
         <LinearLayout
             android:orientation="vertical"
@@ -42,14 +52,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="choix1"
+                android:text="A"
                 android:id="@+id/choix1"
                 android:onClick="onClick1" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="choix2"
+                android:text="B"
                 android:id="@+id/choix2"
                 android:onClick="onClick2" />
 
